@@ -1,5 +1,5 @@
 import request from 'supertest';
-import app from '../src/app.js';
+import { app } from '../src/app.js';
 import type { Rocket } from '../src/types/rocket.types.js';
 
 describe('Rocket Management API - Acceptance Criteria (specs/rockets.spec.md)', () => {

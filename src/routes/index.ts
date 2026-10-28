@@ -1,10 +1,8 @@
 import { Router } from 'express';
 import { getHealth } from '../controllers/health.controller.js';
-import rocketRoutes from './rocket.routes.js';
+import { rocketRoutes } from './rocket.routes.js';
 
-const router = Router();
+export const apiRoutes = Router();
 
-router.get('/health', getHealth);
-router.use('/rockets', rocketRoutes);
-
-export default router;
+apiRoutes.get('/health', getHealth);
+apiRoutes.use('/rockets', rocketRoutes);

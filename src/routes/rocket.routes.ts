@@ -7,12 +7,10 @@ import {
   updateRocket,
 } from '../controllers/rocket.controller.js';
 
-const router = Router();
+export const rocketRoutes = Router();
 
-router.get('/', getRockets);
-router.get('/:id', getRocketById);
-router.post('/', createRocket);
-router.put('/:id', updateRocket);
-router.delete('/:id', deleteRocket);
-
-export default router;
+rocketRoutes.get('/', getRockets);
+rocketRoutes.get('/:id', getRocketById);
+rocketRoutes.post('/', createRocket);
+rocketRoutes.put('/:id', updateRocket);
+rocketRoutes.delete('/:id', deleteRocket);

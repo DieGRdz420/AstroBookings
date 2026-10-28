@@ -18,6 +18,18 @@ Este proyecto forma parte de las prácticas del curso y está diseñado para dem
 
 No está destinado para uso en producción. En esta etapa inicial, no se requiere implementar mecanismos de seguridad ni una base de datos real.
 
+## Desarrollo con IA
+
+Este proyecto aplica buenas prácticas para el desarrollo de software asistido por inteligencia artificial:
+
+- **Especificación antes que código**: cada funcionalidad parte de una especificación escrita (ver [specs/rockets.spec.md](specs/rockets.spec.md)) con historias de usuario, resumen de la solución y criterios de aceptación en formato EARS.
+- **Prompts versionados**: las instrucciones dadas a la IA se conservan como archivos de prompt en el repositorio (`*.promp.md`), de modo que el proceso es reproducible y auditable.
+- **Trabajo en ramas de feature**: cada funcionalidad se desarrolla en su propia rama (por ejemplo `feat/rockets`) y se integra mediante pull requests.
+- **Commits atómicos y descriptivos**: cada commit representa un cambio coherente (scaffold, especificación, implementación) con mensajes que explican el qué y el por qué.
+- **Tipado estricto**: TypeScript en modo `strict`, sin `any`, usando `types` para estructuras de datos e `interfaces` para contratos, lo que permite a la IA razonar sobre el código con mayor precisión.
+- **Arquitectura por capas**: separación en rutas, controladores, servicios, modelos y tipos, facilitando que los cambios generados sean pequeños y localizados.
+- **Verificación continua**: el código generado se valida compilando (`tsc --noEmit`) y probando los endpoints antes de cada commit.
+
 ## Estructura
 
 ```

@@ -50,6 +50,37 @@ Este proyecto aplica buenas prácticas para el desarrollo de software asistido p
 └── tsconfig.json
 ```
 
+## API
+
+### Health
+
+- `GET /api/health` — Estado del servicio (status, uptime, memoria, versión de Node).
+
+### Rockets
+
+Gestión del catálogo de cohetes (ver [specs/rockets.spec.md](specs/rockets.spec.md)):
+
+| Método | Ruta | Descripción |
+|---|---|---|
+| `GET` | `/api/rockets` | Listar todos los cohetes |
+| `GET` | `/api/rockets/:id` | Obtener un cohete por id |
+| `POST` | `/api/rockets` | Crear un cohete |
+| `PUT` | `/api/rockets/:id` | Actualizar un cohete |
+| `DELETE` | `/api/rockets/:id` | Eliminar un cohete |
+
+Ejemplo de cuerpo para `POST`/`PUT`:
+
+```json
+{
+  "name": "Falcon 9",
+  "range": "orbital",
+  "capacity": 7
+}
+```
+
+- `range` debe ser uno de: `suborbital`, `orbital`, `moon`, `mars`.
+- `capacity` debe ser un entero entre 1 y 10.
+
 ## Comandos
 
 ```bash

@@ -1,1 +1,19 @@
 # AstroBookings
+
+Una API backend para gestionar reservaciones de lanzamientos de cohetes.
+
+Este proyecto es una práctica del curso Programación Inteligente, desarrollo profesional con IA, orientada al aprendizaje y la aplicación de conceptos de programación mediante el uso de inteligencia artificial.
+
+El sistema simula una empresa ficticia de viajes espaciales y contempla las siguientes funcionalidades:
+- Los lanzamientos se programan para cohetes específicos, con precios y un número mínimo de pasajeros requerido.
+- Los cohetes tienen una capacidad limitada de asientos. Las solicitudes de reservación se validan para evitar superar dicha capacidad.
+- Los lanzamientos siguen un ciclo de vida: programado → confirmado → exitoso, con alternativas para su cancelación o suspensión.
+- Los clientes se identifican mediante su correo electrónico y cuentan con nombre y número de teléfono.
+- Un cliente puede reservar varios asientos para un mismo lanzamiento, siempre que no supere la cantidad disponible.
+- Los cobros se realizan al momento de reservar y los pagos se procesan mediante una pasarela de pago simulada.
+Advertencia
+AstroBookings es una empresa ficticia creada exclusivamente con fines educativos.
+
+Este proyecto forma parte de las prácticas del curso y está diseñado para demostrar y ejercitar conceptos de programación y desarrollo de software con apoyo de inteligencia artificial.
+
+No está destinado para uso en producción. En esta etapa inicial, no se requiere implementar mecanismos de seguridad ni una base de datos real.

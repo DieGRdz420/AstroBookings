@@ -17,3 +17,33 @@ AstroBookings es una empresa ficticia creada exclusivamente con fines educativos
 Este proyecto forma parte de las prácticas del curso y está diseñado para demostrar y ejercitar conceptos de programación y desarrollo de software con apoyo de inteligencia artificial.
 
 No está destinado para uso en producción. En esta etapa inicial, no se requiere implementar mecanismos de seguridad ni una base de datos real.
+
+## Estructura
+
+```
+├── src/
+│   ├── config/        # Configuración (variables de entorno, etc.)
+│   ├── controllers/   # Controladores (manejo de requests)
+│   ├── middlewares/   # Middlewares de Express
+│   ├── models/        # Modelos de datos
+│   ├── routes/        # Definición de rutas
+│   ├── services/      # Lógica de negocio
+│   ├── types/         # Tipos e interfaces de TypeScript
+│   ├── utils/         # Utilidades
+│   ├── app.ts         # Configuración de Express
+│   └── index.ts       # Punto de entrada
+├── tests/             # Pruebas
+├── .env.example       # Ejemplo de variables de entorno
+├── package.json
+└── tsconfig.json
+```
+
+## Comandos
+
+```bash
+npm install     # Instalar dependencias
+npm run dev     # Desarrollo con recarga automática
+npm run build   # Compilar a JavaScript (dist/)
+npm start       # Ejecutar versión compilada
+npm test        # Ejecutar pruebas
+```

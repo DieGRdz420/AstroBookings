@@ -5,6 +5,7 @@ import type {
   RocketRepository,
   UpdateRocketInput,
 } from '../types/rocket.types.js';
+import { logger } from '../utils/logger.js';
 
 export class InMemoryRocketRepository implements RocketRepository {
   private readonly rockets = new Map<string, Rocket>();
@@ -20,6 +21,7 @@ export class InMemoryRocketRepository implements RocketRepository {
   create(input: CreateRocketInput): Rocket {
     const rocket: Rocket = { id: randomUUID(), ...input };
     this.rockets.set(rocket.id, rocket);
+    logger.debug(`Repository: saved rocket ${rocket.id}`);
     return rocket;
   }
 
@@ -30,10 +32,15 @@ export class InMemoryRocketRepository implements RocketRepository {
     }
     const updated: Rocket = { ...existing, ...input };
     this.rockets.set(id, updated);
+    logger.debug(`Repository: updated rocket ${id}`);
     return updated;
   }
 
   delete(id: string): boolean {
-    return this.rockets.delete(id);
+    const deleted = this.rockets.delete(id);
+    if (deleted) {
+      logger.debug(`Repository: deleted rocket ${id}`);
+    }
+    return deleted;
   }
 }

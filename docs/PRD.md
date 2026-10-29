@@ -1,5 +1,7 @@
 # AstroBookings — Product Requirements Document (PRD)
 
+> **English** · [Español](#documento-de-requisitos-del-producto-prd)
+
 Version: 1.2.0 (derived from the current project state)
 Status: Draft for review
 
@@ -88,3 +90,98 @@ A space travel company needs to:
 2. Customer identification (F5).
 3. Bookings with capacity checks (F6).
 4. Simulated payments (F7).
+
+---
+
+# Documento de Requisitos del Producto (PRD)
+
+> [English](#astrobookings--product-requirements-document-prd) · **Español**
+
+Versión: 1.2.0 (derivada del estado actual del proyecto)
+Estado: Borrador para revisión
+
+## 1. Descripción del producto
+
+AstroBookings es una API backend que gestiona reservaciones de lanzamientos de cohetes para una empresa ficticia de viajes espaciales. Es un proyecto educativo para el curso "Programación Inteligente". En esta etapa no usa una base de datos real ni requiere seguridad de producción.
+
+## 2. Planteamiento del problema
+
+Una empresa de viajes espaciales necesita:
+- Mantener un catálogo preciso de sus cohetes, incluyendo alcance y capacidad de asientos.
+- Programar lanzamientos para cohetes específicos, con precios y un número mínimo de pasajeros.
+- Permitir que los clientes reserven asientos en un lanzamiento sin superar la capacidad.
+- Cobrar a los clientes al momento de reservar mediante una pasarela de pago simulada.
+
+## 3. Usuarios objetivo
+
+- **Administrador**: gestiona el catálogo de cohetes y la programación de lanzamientos.
+- **Cliente**: consulta cohetes y lanzamientos, y reserva asientos.
+
+## 4. Alcance y estado
+
+| # | Funcionalidad | Estado | Referencia |
+|---|---------------|--------|------------|
+| F1 | Endpoint de estado de salud | Implementada (1.0.0) | `GET /api/health` |
+| F2 | CRUD del catálogo de cohetes | Implementada (1.1.0) | `specs/rockets.spec.md` |
+| F3 | Logging en todas las capas | Implementada (1.2.0) | `src/utils/logger.ts` |
+| F4 | Programación y ciclo de vida de lanzamientos | Planeada | README |
+| F5 | Identificación de clientes | Planeada | README |
+| F6 | Reservas de asientos con control de capacidad | Planeada | README |
+| F7 | Procesamiento de pagos simulado al reservar | Planeada | README |
+
+## 5. Requisitos funcionales
+
+### 5.1 Implementados
+
+**F2 — Catálogo de cohetes**
+- Cada cohete tiene un id único, un nombre, un alcance (`suborbital`, `orbital`, `moon`, `mars`) y una capacidad de 1 a 10.
+- Endpoints: `GET /api/rockets`, `GET /api/rockets/:id`, `POST /api/rockets`, `PUT /api/rockets/:id`, `DELETE /api/rockets/:id`.
+- La validación devuelve HTTP 400; los ids inexistentes devuelven HTTP 404.
+
+### 5.2 Planeados (según el README)
+
+**F4 — Lanzamientos**
+- Un lanzamiento se programa para un cohete específico, con un precio y un número mínimo de pasajeros.
+- Ciclo de vida: `scheduled` → `confirmed` → `successful`, con las alternativas `cancelled` y `suspended`.
+
+**F5 — Clientes**
+- Los clientes se identifican por correo electrónico y tienen nombre y número de teléfono.
+
+**F6 — Reservas**
+- Un cliente puede reservar varios asientos en el mismo lanzamiento.
+- Una reserva se rechaza si supera los asientos disponibles en el cohete.
+
+**F7 — Pagos**
+- Los cobros se realizan al momento de reservar.
+- Los pagos pasan por una pasarela de pago simulada.
+
+## 6. Requisitos no funcionales
+
+- Lenguaje: TypeScript 5.9 en modo estricto, módulos ES.
+- Entorno y framework: Node.js 24 (LTS), Express 5.3.
+- Almacenamiento: solo repositorios en memoria.
+- Pruebas: Jest 29 con Supertest para pruebas end-to-end.
+- Logging: logger de consola con timestamp ISO y niveles (`INFO`, `WARN`, `ERROR`, `DEBUG`).
+- Seguridad: no requerida en esta etapa.
+- Arquitectura: por capas (rutas → controladores → servicios → repositorios/modelos → tipos).
+
+## 7. Decisiones clave
+
+- Mantener la persistencia en memoria para el alcance educativo; sin base de datos real.
+- Mantener la arquitectura por capas para que los cambios generados con IA sean pequeños y localizados.
+- Especificar cada funcionalidad en `specs/` antes de implementarla.
+- No agregar mecanismos de seguridad de producción.
+
+## 8. Preguntas abiertas
+
+- ¿La cantidad de asientos de un lanzamiento viene directamente de la capacidad del cohete, o puede definirse por lanzamiento?
+- ¿Qué campos guarda un registro de pago y cómo se manejan los reembolsos al cancelar?
+- ¿Qué estados de lanzamiento puede ver el cliente y cuáles son solo de administrador?
+- ¿El cliente puede cancelar sus reservas?
+
+## 9. Hitos
+
+1. Programación de lanzamientos (F4) con su propia especificación en `specs/`.
+2. Identificación de clientes (F5).
+3. Reservas con control de capacidad (F6).
+4. Pagos simulados (F7).

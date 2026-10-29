@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express';
-import { InMemoryRocketRepository } from '../models/rocket.model.js';
+import { InMemoryRocketRepository } from '../repositories/rocket.repository.js';
 import {
   RocketNotFoundError,
   RocketService,

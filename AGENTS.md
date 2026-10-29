@@ -1,3 +1,78 @@
+<!--
+INSTRUCCIONES EN ESPAÑOL
+
+# Instrucciones para Agentes
+
+## Resumen del Producto
+- AstroBookings es una API backend para gestionar reservas de lanzamientos de cohetes.
+- Simula una empresa de viajes espaciales: cohetes, lanzamientos y reservas de asientos.
+- Proyecto educativo; no se requiere base de datos real ni seguridad de producción.
+
+## Implementación Técnica
+
+### Stack Tecnológico
+- Lenguaje: **TypeScript 5.9 (modo estricto, módulos ES)**
+- Framework: **Express 5.3 sobre Node.js 24 (LTS)**
+- Base de datos: **Repositorios en memoria (sin base de datos real)**
+- Seguridad: **No requerida en esta etapa**
+- Pruebas: **Jest 29 + Supertest (e2e)**
+- Logging: **Logger de consola personalizado (src/utils/logger.ts)**
+
+### Flujo de trabajo de desarrollo
+```bash
+# Configurar el proyecto
+npm install
+# Compilar el proyecto
+npm run build
+# Ejecutar el proyecto
+npm run dev      # dev con auto-recarga (tsx watch)
+npm start        # ejecuta el dist/ compilado
+# Probar el proyecto
+npm test
+# Desplegar el proyecto
+# Sin despliegue; proyecto educativo
+```
+
+### Estructura de carpetas
+```text
+.
+├── AGENTS.md           # Este archivo con instrucciones para agentes de IA
+├── README.md           # El archivo principal de documentación humana
+├── CHANGELOG.md        # Historial de versiones (Keep a Changelog)
+├── package.json        # Scripts y dependencias
+├── tsconfig.json       # Configuración de TypeScript (NodeNext, strict)
+├── jest.config.js      # Configuración ESM de Jest
+├── specs/              # Especificaciones de funcionalidades (criterios EARS)
+├── src/
+│   ├── index.ts        # Punto de entrada
+│   ├── app.ts          # Configuración de la app Express
+│   ├── config/         # Variables de entorno
+│   ├── controllers/    # Manejadores de peticiones
+│   ├── middlewares/    # Middlewares de Express
+│   ├── models/         # Repositorios en memoria
+│   ├── routes/         # Definiciones de rutas
+│   ├── services/       # Lógica de negocio y validación
+│   ├── types/          # Tipos e interfaces
+│   └── utils/          # Utilidades (logger)
+└── tests/              # Pruebas E2E
+```
+
+## Entorno
+- El código y la documentación deben estar en inglés.
+- Las respuestas del chat deben estar en el idioma del prompt del usuario.
+- Sacrifica la gramática por concisión en las respuestas.
+- Este es un entorno Windows usando terminal git bash.
+- Mi rama por defecto es `main`.
+
+## Comportamiento del Agente
+- Cuando el usuario etiquete un archivo `.md` sin otras instrucciones, ejecuta las instrucciones que contiene.
+
+IMPORTANTE:
+Estas instrucciones están comentadas para que no aparezcan en la
+visualización normal del Markdown. El contenido original en inglés
+se conserva a continuación.
+-->
+
 # Agents Instructions
 
 ## Product Overview
@@ -60,3 +135,6 @@ npm test
 - Sacrifice grammar for conciseness in responses.
 - This is a Windows environment using git bash terminal.
 - My default branch is `main`.
+
+## Agent Behavior
+- When the user tags a `.md` file with no other instructions, run the instructions it contains.

@@ -81,6 +81,22 @@ Ejemplo de cuerpo para `POST`/`PUT`:
 - `range` debe ser uno de: `suborbital`, `orbital`, `moon`, `mars`.
 - `capacity` debe ser un entero entre 1 y 10.
 
+## Logging
+
+El sistema registra eventos en consola con timestamp ISO y nivel (`INFO`, `WARN`, `ERROR`, `DEBUG`):
+
+- **Peticiones HTTP**: método, ruta, código de estado y duración (middleware `request-logger`).
+- **Operaciones CRUD**: creación, actualización y eliminación de cohetes (`INFO`).
+- **Validaciones y recursos no encontrados**: (`WARN`).
+- **Mutaciones del repositorio**: (`DEBUG`).
+
+Ejemplo de salida:
+
+```text
+[2026-10-29T14:00:00.000Z] [INFO] POST /api/rockets 201 12ms
+[2026-10-29T14:00:00.000Z] [INFO] Rocket registered: Falcon 9 (a1b2c3...)
+```
+
 ## Comandos
 
 ```bash
